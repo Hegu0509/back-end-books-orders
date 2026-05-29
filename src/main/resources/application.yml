@@ -22,3 +22,7 @@ eureka:
   instance:
     prefer-ip-address: true
     hostname: unir-books-orders
+
+## Microservices Configuration
+booksCatalogue:
+  url: ${BOOKS_CATALOGUE_URL:http://books-catalogue/api/v1}

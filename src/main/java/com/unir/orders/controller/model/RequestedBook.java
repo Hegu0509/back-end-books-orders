@@ -7,22 +7,24 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "recentOrders"
+        "id",
+        "quantity"
 })
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class GetOrdersResponseDto implements Serializable {
+public class RequestedBook implements Serializable {
 
     @Serial
-    private final static long serialVersionUID = -8949888676747079614L;
+    private final static long serialVersionUID = -2297836609917736443L;
 
-    @JsonProperty("recentOrders")
-    public List<RecentOrder> recentOrders;
+    @JsonProperty("id")
+    public Long id;
+    @JsonProperty("quantity")
+    public Integer quantity;
 }

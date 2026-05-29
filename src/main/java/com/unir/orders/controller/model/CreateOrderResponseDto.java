@@ -5,24 +5,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
-import java.io.Serial;
 import java.io.Serializable;
-import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "recentOrders"
+        "order"
 })
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class GetOrdersResponseDto implements Serializable {
+public class CreateOrderResponseDto implements Serializable {
 
-    @Serial
-    private final static long serialVersionUID = -8949888676747079614L;
+    private final static long serialVersionUID = 7686450847709803303L;
 
-    @JsonProperty("recentOrders")
-    public List<RecentOrder> recentOrders;
+    @JsonProperty("order")
+    public String order;
 }

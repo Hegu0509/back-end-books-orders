@@ -9,7 +9,7 @@ USE ordersdb;
 CREATE TABLE orders (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id VARCHAR(100) NOT NULL,
-    status VARCHAR(30) NOT NULL DEFAULT 'CONFIRMED',
+    status VARCHAR(30) NOT NULL DEFAULT 'EN_PROCESO',
     total_amount DECIMAL(12,2) NOT NULL DEFAULT 0.00,
     currency VARCHAR(3) NOT NULL DEFAULT 'EUR',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -18,7 +18,8 @@ CREATE TABLE orders (
     KEY idx_orders_user_id (user_id),
     KEY idx_orders_user_created (user_id, created_at),
 
-    CONSTRAINT chk_orders_total_non_negative CHECK (total_amount >= 0)
+    CONSTRAINT chk_orders_total_non_negative CHECK (total_amount >= 0),
+    CONSTRAINT chk_orders_status_valid CHECK (status IN ('EN_PROCESO', 'CANCELADO', 'ENTREGADO'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE order_items (

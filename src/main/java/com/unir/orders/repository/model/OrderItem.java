@@ -21,25 +21,25 @@ public class OrderItem {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @Column(name = "book_id", nullable = false)
     private Long bookId;
 
-    @Column(name = "book_title", length = 255)
+    @Column(name = "book_title")
     private String bookTitle;
 
-    @Column(name = "isbn", length = 20)
+    @Column(name = "isbn")
     private String isbn;
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "unit_price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "unit_price", precision = 10, scale = 2, nullable = false)
     private BigDecimal unitPrice;
 
-    @Column(name = "subtotal", nullable = false, precision = 12, scale = 2)
+    @Column(name = "subtotal", precision = 12, scale = 2, nullable = false)
     private BigDecimal subtotal;
 }

@@ -1,18 +1,28 @@
 package com.unir.orders.controller.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "books"
+})
 @Getter
 @Setter
-public class CreateOrderRequestDto {
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class CreateOrderRequestDto implements Serializable {
 
-    @JsonProperty("userId")
-    private String userId;
+    @Serial
+    private final static long serialVersionUID = 7686450847709803303L;
 
-    @JsonProperty("items")
-    private List<OrderItemRequestDto> items;
+    @JsonProperty("books")
+    public List<RequestedBook> books;
 }
