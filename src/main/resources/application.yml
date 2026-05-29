@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: orders
+    name: books-orders
 
   datasource:
     url: ${DB_URL:jdbc:mysql://localhost:3307/ordersdb}
@@ -20,5 +20,5 @@ eureka:
     service-url:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
   instance:
-    prefer-ip-address: false
-    hostname: orders
+    prefer-ip-address: true
+    hostname: unir-books-orders
